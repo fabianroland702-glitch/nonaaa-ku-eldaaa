@@ -296,6 +296,49 @@
   <p class="footer-flowers">🌻 🌷 🌸 🌼 🌷 🌻</p>
 </footer>
 
+  <script>
+  const bgMusic = document.getElementById('bgMusic');
+const btnMusic = document.getElementById('btnMusic');
+const musicIcon = document.getElementById('musicIcon');
+const musicVinyl = document.getElementById('musicVinyl'); // Jika vinyl ada efek berputar
+
+// Fungsi untuk memainkan musik dan mengubah ikon ke PAUSE
+function playAudio() {
+  bgMusic.play().then(() => {
+    musicIcon.className = "fa-solid fa-pause";
+    if(musicVinyl) musicVinyl.classList.add('rotating'); // Tambah efek putar jika ada
+  }).catch(error => {
+    console.log("Autoplay diblokir oleh browser, menunggu interaksi pengguna.");
+  });
+}
+
+// Fungsi untuk menjeda musik dan mengubah ikon ke PLAY
+function pauseAudio() {
+  bgMusic.pause();
+  musicIcon.className = "fa-solid fa-play";
+  if(musicVinyl) musicVinyl.classList.remove('rotating');
+}
+
+// Trik Autoplay: Putar musik pada klik pertama di manapun di halaman web
+document.addEventListener('click', function startAutoplay() {
+  playAudio();
+  // Hapus event listener ini setelah klik pertama agar tidak trigger terus-menerus
+  document.removeEventListener('click', startAutoplay);
+}, { once: true });
+
+// Fungsi tombol Play/Pause manual
+btnMusic.addEventListener('click', function(event) {
+  // Jalankan stopPropagation agar tidak memicu fungsi klik dokumen di atas
+  event.stopPropagation(); 
+  
+  if (bgMusic.paused) {
+    playAudio();
+  } else {
+    pauseAudio();
+  }
+});
+  </script>
+
 <script src="script.js"></script>
 </body>
 </html>
