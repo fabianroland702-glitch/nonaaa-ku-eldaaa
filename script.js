@@ -237,7 +237,6 @@
     setTimeout(() => {
       alert('🤗 Untuk nona ku, aku bangga padamu!. dirimu selalu tersenyum ya dan semangatt terus aku akan selalu mendukungmu. 🌻');
     }, 220);
-    }, 220);
   });
 })();
 
