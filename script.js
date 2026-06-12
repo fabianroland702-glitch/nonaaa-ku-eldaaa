@@ -235,7 +235,8 @@
   document.getElementById('btnHug').addEventListener('click', () => {
     if (typeof window.burstConfetti === 'function') window.burstConfetti();
     setTimeout(() => {
-      alert('🤗 Untuk nona tersayang, kamu hebat! Aku di sini selalu. 🌻');
+      alert('🤗 Untuk nona ku, aku bangga padamu!. dirimu selalu tersenyum ya dan semangatt terus aku akan selalu mendukungmu. 🌻');
+    }, 220);
     }, 220);
   });
 })();
